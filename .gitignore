@@ -1,6 +1,7 @@
 # Class Files #
 *.class
 *.jar
+*.classpath
 
 # AppEngine Generated #
 \AdaptiveTest\.settings\
