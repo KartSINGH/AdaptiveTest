@@ -24,8 +24,8 @@ public class LoginController extends HttpServlet {
 			sess.setAttribute("branch", getBranch());
 			sess.setAttribute("name", getName());
 			sess.setAttribute("pass", getPass());
-			res.sendRedirect("/user.html");
+			res.sendRedirect("/user");
 		} else
-			res.sendRedirect("/reg.html");
+			res.sendRedirect("/registerPage");
 	}
 }
