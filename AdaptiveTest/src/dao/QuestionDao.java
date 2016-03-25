@@ -11,8 +11,9 @@ import entity.Question;
 
 public class QuestionDao {
 	public static void saveQuestion(String id, String question, String answer,
-			List<Ref<Option>> option, String course) {
-		Question q = new Question(id, question, answer, option, course);
+			List<Ref<Option>> option, String course, int difficulty) {
+		Question q = new Question(id, question, answer, option, course,
+				difficulty);
 		ofy().save().entity(q);
 		ofy().clear();
 	}

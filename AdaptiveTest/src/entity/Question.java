@@ -16,19 +16,21 @@ public class Question {
 	String answer;
 	List<Ref<Option>> option;
 	String course;
+	int difficulty;
 
 	public Question() {
 		super();
 	}
 
 	public Question(String id, String question, String answer,
-			List<Ref<Option>> option, String course) {
+			List<Ref<Option>> option, String course, int difficulty) {
 		super();
 		this.id = id;
 		this.question = question;
 		this.answer = answer;
 		this.option = option;
 		this.course = course;
+		this.difficulty = difficulty;
 	}
 
 	public String getId() {
@@ -71,4 +73,11 @@ public class Question {
 		this.course = course;
 	}
 
+	public int getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
+	}
 }

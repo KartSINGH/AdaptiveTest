@@ -23,6 +23,7 @@ public class QuestionController extends HttpServlet {
 		String question = req.getParameter("question");
 		String answer = req.getParameter("answer");
 		String course = req.getParameter("course");
+		int difficulty = Integer.parseInt(req.getParameter("difficulty"));
 		List<Ref<Option>> option = new ArrayList<Ref<Option>>();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
@@ -35,6 +36,7 @@ public class QuestionController extends HttpServlet {
 			saveOption(op);
 			option.add(Ref.create(op));
 		}
-		saveQuestion(id + "Question", question, answer, option, course);
+		saveQuestion(id + "Question", question, answer, option, course,
+				difficulty);
 	}
 }
