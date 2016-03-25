@@ -2,9 +2,13 @@
 *.class
 *.jar
 *.classpath
+
+# AppEngine Generated #
 datastore-indexes-auto.xml
 local_db.bin
 
-# AppEngine Generated #
-\AdaptiveTest\.settings\
-\AdaptiveTest\war\WEB-INF\appengine-generated\*
+# Settings #
+com.google.appengine.eclipse.core.prefs
+com.google.gdt.eclipse.core.prefs
+org.eclipse.jdt.core.prefs
+org.eclipse.wst.common.project.facet.core.xml

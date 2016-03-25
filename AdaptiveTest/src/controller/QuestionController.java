@@ -3,6 +3,7 @@ package controller;
 import static dao.OptionDao.saveOption;
 import static dao.QuestionDao.saveQuestion;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import entity.Option;
 
 @SuppressWarnings("serial")
 public class QuestionController extends HttpServlet {
-	public void doPost(HttpServletRequest req, HttpServletResponse res) {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		String question = req.getParameter("question");
 		String answer = req.getParameter("answer");
 		String course = req.getParameter("course");
@@ -38,5 +39,6 @@ public class QuestionController extends HttpServlet {
 		}
 		saveQuestion(id + "Question", question, answer, option, course,
 				difficulty);
+		res.sendRedirect("front.html");
 	}
 }

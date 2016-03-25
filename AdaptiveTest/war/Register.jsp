@@ -81,9 +81,8 @@
 								required> <label for="icon_telephone">name</label>
 						</div>
 						<div class="input-field col s12">
-
-							<select name="branch" required>
-								<i class="material-icons prefix">input</i>
+							<i class="material-icons prefix">input</i> <select name="branch"
+								required>
 								<option value="" disabled selected>Select Course</option>
 								<option value="Computer Science">Computer Science</option>
 								<option value="IT">IT</option>

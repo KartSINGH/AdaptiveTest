@@ -4,16 +4,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Question</title>
+<link href="css/materialize.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+<link href="css/style.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
 </head>
 <body>
-	<form method="post" action="/addQuestion">
-		<input type="text" name="question" required> <input
-			type="text" name="answer" required> <input type="text"
-			name="option0" required> <input type="text" name="option1"
-			required> <input type="text" name="option2" required>
-		<input type="text" name="course"> <input type="submit">
-	</form>
+	<div class="container">
+		<form method="post" action="/addQuestion">
+			<input type="text" name="question" required placeholder="Question">
+			<input type="text" name="answer" required placeholder="Answer">
+			<input type="text" name="option0" required placeholder="Option 1">
+			<input type="text" name="option1" required placeholder="Option 2">
+			<input type="text" name="option2" required placeholder="Option 3">
+			<input type="text" name="course" placeholder="Course"> <input
+				type="number" name="difficulty" required placeholder="Difficulty">
+			<input type="submit">
+		</form>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
 
 </body>
 </html>
