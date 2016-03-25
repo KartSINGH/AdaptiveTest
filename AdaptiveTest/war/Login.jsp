@@ -13,25 +13,26 @@
 	rel="stylesheet">
 <link href="css/materialize.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
+<link href="css/login.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<nav class="indigo lighten-1" role="navigation">
 		<div class="nav-wrapper container">
 			<a id="logo-container" href="#" class="brand-logo">MyMockTest</a>
 			<ul class="right hide-on-med-and-down">
+				<li><a href="/">Home</a></li>
 				<li><a href="/loginPage">Login</a></li>
 			</ul>
-
 			<ul id="nav-mobile" class="side-nav">
+				<li><a href="/">Home</a></li>
 				<li><a href="/loginPage">Login</a></li>
 			</ul>
 			<a href="#" data-activates="nav-mobile" class="button-collapse"><i
 				class="material-icons">menu</i></a>
 		</div>
 	</nav>
-	<br>
 
-	<div class="row">
+	<div class="row mainPage">
 		<div class="col s6 m9 l9 left">
 			<div class="slider">
 				<ul class="slides">
@@ -102,30 +103,11 @@
 
 
 				</div>
-				<div class="col l3 s12">
-					<h5 class="white-text">Settings</h5>
-					<ul>
-						<li><a class="white-text" href="#!">Link 1</a></li>
-						<li><a class="white-text" href="#!">Link 2</a></li>
-						<li><a class="white-text" href="#!">Link 3</a></li>
-						<li><a class="white-text" href="#!">Link 4</a></li>
-					</ul>
-				</div>
-				<div class="col l3 s12">
-					<h5 class="white-text">Connect</h5>
-					<ul>
-						<li><a class="white-text" href="#!">Link 1</a></li>
-						<li><a class="white-text" href="#!">Link 2</a></li>
-						<li><a class="white-text" href="#!">Link 3</a></li>
-						<li><a class="white-text" href="#!">Link 4</a></li>
-					</ul>
-				</div>
 			</div>
 		</div>
 		<div class="footer-copyright">
 			<div class="container">
-				Made by <a class="orange-text text-lighten-3"
-					href="http://materializecss.com">Materialize</a>
+				Copyright
 			</div>
 		</div>
 	</footer>
