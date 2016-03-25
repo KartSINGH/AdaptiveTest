@@ -14,19 +14,21 @@ public class UserDetails {
 	String name;
 	String college;
 	String branch;
+	Test test[];
 
 	public UserDetails() {
-
+		super();
 	}
 
-	public UserDetails(String uID, String pass, String name, String branch,
-			String college) {
+	public UserDetails(String uID, String pass, String name, String college,
+			String branch, Test[] test) {
 		super();
 		this.uID = uID;
 		this.pass = pass;
 		this.name = name;
 		this.college = college;
 		this.branch = branch;
+		this.test = test;
 	}
 
 	public String getuID() {
@@ -68,4 +70,13 @@ public class UserDetails {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
+
+	public Test[] getTest() {
+		return test;
+	}
+
+	public void setTest(Test[] test) {
+		this.test = test;
+	}
+
 }
