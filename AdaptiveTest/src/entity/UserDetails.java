@@ -1,7 +1,9 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
@@ -16,7 +18,7 @@ public class UserDetails {
 	String name;
 	String college;
 	String branch;
-	List<Test> test;
+	List<Ref<Test>> test;
 
 	public UserDetails() {
 		super();
@@ -30,7 +32,7 @@ public class UserDetails {
 		this.name = name;
 		this.college = college;
 		this.branch = branch;
-		test = null;
+		test = new ArrayList<Ref<Test>>();
 	}
 
 	public String getuID() {
@@ -73,11 +75,11 @@ public class UserDetails {
 		this.branch = branch;
 	}
 
-	public List<Test> getTest() {
+	public List<Ref<Test>> getTest() {
 		return test;
 	}
 
-	public void setTest(List<Test> test) {
+	public void setTest(List<Ref<Test>> test) {
 		this.test = test;
 	}
 

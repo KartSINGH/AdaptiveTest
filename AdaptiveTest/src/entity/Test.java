@@ -2,6 +2,7 @@ package entity;
 
 import java.util.List;
 
+import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
@@ -11,17 +12,17 @@ public class Test {
 	@Id
 	String id;
 	@Index
-	List<Question> question;
+	List<Ref<Question>> question;
 	int score;
 
 	public Test() {
 		super();
 	}
 
-	public Test(String id, int score) {
+	public Test(String id, List<Ref<Question>> question, int score) {
 		super();
 		this.id = id;
-		this.question = null;
+		this.question = question;
 		this.score = score;
 	}
 
@@ -33,11 +34,11 @@ public class Test {
 		this.id = id;
 	}
 
-	public List<Question> getQuestion() {
+	public List<Ref<Question>> getQuestion() {
 		return question;
 	}
 
-	public void setQuestion(List<Question> question) {
+	public void setQuestion(List<Ref<Question>> question) {
 		this.question = question;
 	}
 
