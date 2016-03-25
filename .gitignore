@@ -3,5 +3,5 @@
 *.jar
 
 # AppEngine Generated #
-\AdaptiveTest\.settings
-\AdaptiveTest\war\WEB-INF\appengine-generated
+\AdaptiveTest\.settings\
+\AdaptiveTest\war\WEB-INF\appengine-generated\*
