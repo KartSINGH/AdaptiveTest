@@ -18,16 +18,14 @@ public class LoginController extends HttpServlet {
 		String uID = req.getParameter("email");
 		String pass = req.getParameter("pass");
 		if (validate(uID, pass)) {
-			System.out.println("Valid");
 			HttpSession sess = req.getSession();
 			sess.setAttribute("uID", getuID());
 			sess.setAttribute("college", getCollege());
 			sess.setAttribute("branch", getBranch());
 			sess.setAttribute("name", getName());
 			sess.setAttribute("pass", getPass());
-			System.out.println(uID);
-			res.sendRedirect("user.html");
+			res.sendRedirect("/user.html");
 		} else
-			res.sendRedirect("reg.html");
+			res.sendRedirect("/reg.html");
 	}
 }

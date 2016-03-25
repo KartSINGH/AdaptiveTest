@@ -19,11 +19,11 @@ public class RegisterController extends HttpServlet {
 		String branch = req.getParameter("branch");
 		if (check(uID)) {
 			if (save(uID, pass, name, branch, college)) {
-				res.sendRedirect("login.html");
+				res.sendRedirect("/login.html");
 			} else
-				res.sendRedirect("reg.html");
+				res.sendRedirect("/reg.html");
 		} else {
-			res.sendRedirect("dreg.html");
+			res.sendRedirect("/dreg.html");
 		}
 	}
 }

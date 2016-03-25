@@ -1,2 +1,7 @@
-.class
-.jar
+//Class Files
+*.class
+*.jar
+
+//AppEngine Generated
+\AdaptiveTest\.settings\
+\AdaptiveTest\war\WEB-INF\appengine-generated\
