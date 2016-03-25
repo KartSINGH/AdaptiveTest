@@ -16,14 +16,18 @@ import entity.Question;
 
 @SuppressWarnings("serial")
 public class Test extends HttpServlet {
-	public void service(HttpServletRequest req,HttpServletResponse res){
-		String id = "2016/03/25 15:21:17Question";
-		Question q = ofy().load().type(Question.class).id(id).now();
-		List<Ref<Option>> o = q.getOption();
-		Iterator<Ref<Option>> it = o.iterator();
-		while(it.hasNext()){
-			Option op = it.next().get();
-			System.out.println(op.getOption());
+	public void service(HttpServletRequest req, HttpServletResponse res) {
+		List<Question> ql = ofy().load().type(Question.class).list();
+		Iterator<Question> qi = ql.iterator();
+		while (qi.hasNext()) {
+			Question q = qi.next();
+			System.out.println(q.getQuestion());
+			List<Ref<Option>> o = q.getOption();
+			Iterator<Ref<Option>> it = o.iterator();
+			while (it.hasNext()) {
+				Option op = it.next().get();
+				System.out.println(op.getOption());
+			}
 		}
 	}
 }

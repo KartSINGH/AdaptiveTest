@@ -10,10 +10,9 @@ import entity.Option;
 import entity.Question;
 
 public class QuestionDao {
-	public static void saveQuestion(String id, String question, String answer,
+	public static void saveQuestion(String question, String answer,
 			List<Ref<Option>> option, String course, int difficulty) {
-		Question q = new Question(id, question, answer, option, course,
-				difficulty);
+		Question q = new Question(question, answer, option, course, difficulty);
 		ofy().save().entity(q);
 		ofy().clear();
 	}

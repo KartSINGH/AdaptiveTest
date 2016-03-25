@@ -14,7 +14,6 @@ public class Option {
 	}
 
 	public Option(String id, String option) {
-		super();
 		this.id = id;
 		this.option = option;
 	}

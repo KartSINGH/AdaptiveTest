@@ -10,7 +10,7 @@ import com.googlecode.objectify.annotation.Index;
 @Entity
 public class Question {
 	@Id
-	String id;
+	Long id;
 	@Index
 	String question;
 	String answer;
@@ -22,10 +22,9 @@ public class Question {
 		super();
 	}
 
-	public Question(String id, String question, String answer,
-			List<Ref<Option>> option, String course, int difficulty) {
-		super();
-		this.id = id;
+	public Question(String question, String answer, List<Ref<Option>> option,
+			String course, int difficulty) {
+		id = null;
 		this.question = question;
 		this.answer = answer;
 		this.option = option;
@@ -33,11 +32,11 @@ public class Question {
 		this.difficulty = difficulty;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
