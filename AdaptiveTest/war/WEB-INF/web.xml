@@ -32,6 +32,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>Add Question</servlet-name>
+		<servlet-class>controller.QuestionController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Add Question</servlet-name>
+		<url-pattern>/addQuestion</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
 		<servlet-name>Login Page</servlet-name>
 		<jsp-file>Login.jsp</jsp-file>
 	</servlet>

@@ -1,5 +1,8 @@
 package entity;
 
+import java.util.List;
+
+import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
@@ -11,18 +14,21 @@ public class Question {
 	@Index
 	String question;
 	String answer;
-	Option o[];
+	List<Ref<Option>> option;
+	String course;
 
 	public Question() {
 		super();
 	}
 
-	public Question(String id, String question, String answer, Option[] o) {
+	public Question(String id, String question, String answer,
+			List<Ref<Option>> option, String course) {
 		super();
 		this.id = id;
 		this.question = question;
 		this.answer = answer;
-		this.o = o;
+		this.option = option;
+		this.course = course;
 	}
 
 	public String getId() {
@@ -49,11 +55,20 @@ public class Question {
 		this.answer = answer;
 	}
 
-	public Option[] getO() {
-		return o;
+	public List<Ref<Option>> getOption() {
+		return option;
 	}
 
-	public void setO(Option[] o) {
-		this.o = o;
+	public void setOption(List<Ref<Option>> option) {
+		this.option = option;
 	}
+
+	public String getCourse() {
+		return course;
+	}
+
+	public void setCourse(String course) {
+		this.course = course;
+	}
+
 }

@@ -6,6 +6,9 @@ import com.googlecode.objectify.ObjectifyService;
 
 public class OfyService {
 	static {
+		factory().register(entity.Option.class);
+		factory().register(entity.Question.class);
+		factory().register(entity.Test.class);
 		factory().register(entity.UserDetails.class);
 	}
 

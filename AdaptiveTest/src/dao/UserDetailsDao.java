@@ -12,7 +12,7 @@ public class UserDetailsDao {
 
 	public static boolean save(String uID, String pass, String name,
 			String branch, String college) {
-		UserDetails user = new UserDetails(uID, pass, name, branch, college, null);
+		UserDetails user = new UserDetails(uID, pass, name, branch, college);
 		ofy().save().entity(user);
 		ofy().clear();
 		return true;
