@@ -2,6 +2,8 @@
 *.class
 *.jar
 *.classpath
+datastore-indexes-auto.xml
+local_db.bin
 
 # AppEngine Generated #
 \AdaptiveTest\.settings\
