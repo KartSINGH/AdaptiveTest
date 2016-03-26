@@ -32,22 +32,17 @@
 		</div>
 	</nav>
 
-	<form method="post" action="/logout">
-		<div class="row center">
+	<div class="mainPage">
+		<form method="post" action="/logout">
+			<div class="row center">
 
-			<button class="btn waves-effect waves-light" type="submit"
-				name="action">
-				Logout <i class="material-icons right">send</i>
-			</button>
-		</div>
-	</form>
-
-
-
-
-
-
-
+				<button class="btn waves-effect waves-light" type="submit"
+					name="action">
+					Logout <i class="material-icons right">send</i>
+				</button>
+			</div>
+		</form>
+	</div>
 
 	<footer class="page-footer indigo darken-4">
 		<div class="container">
