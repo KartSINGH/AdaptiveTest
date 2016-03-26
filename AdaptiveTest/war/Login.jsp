@@ -33,12 +33,11 @@
 	</nav>
 
 	<div class="row mainPage">
-		<div class="col s6 m9 l9 left">
+		<div class="col s6 m9 l9 left home">
 			<div class="slider">
 				<ul class="slides">
 					<li><img src="images/banner1.jpg">
 						<div class="caption center-align">
-							<h3>This is our big Tagline!</h3>
 							<h5 class="light grey-text text-lighten-3">Here's our small
 								slogan.</h5>
 						</div></li>
