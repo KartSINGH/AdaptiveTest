@@ -35,6 +35,6 @@ public class QuestionController extends HttpServlet {
 			option.add(Ref.create(op));
 		}
 		saveQuestion(question, answer, option, course, difficulty);
-		res.sendRedirect("front.html");
+		res.sendRedirect("Index.jsp");
 	}
 }

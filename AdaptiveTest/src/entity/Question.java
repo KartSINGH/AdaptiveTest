@@ -16,6 +16,7 @@ public class Question {
 	String answer;
 	List<Ref<Option>> option;
 	String course;
+	@Index
 	int difficulty;
 
 	public Question() {

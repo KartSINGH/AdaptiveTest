@@ -79,8 +79,8 @@
 								required> <label for="icon_telephone">name</label>
 						</div>
 						<div class="input-field col s12">
-							<i class="material-icons prefix">input</i> <select name="branch"
-								required>
+							<select name="branch" required>
+								<i class="material-icons prefix">input</i>
 								<option value="" disabled selected>Select Course</option>
 								<option value="Computer Science">Computer Science</option>
 								<option value="IT">IT</option>
@@ -101,13 +101,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
 
 	<footer class="page-footer indigo darken-4">
 		<div class="container">
