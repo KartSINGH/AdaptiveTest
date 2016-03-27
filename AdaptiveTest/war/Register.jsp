@@ -33,7 +33,7 @@
 	</nav>
 
 	<div class="row mainPage">
-		<div class="col s6 m9 l9 left">
+		<div class="col s12 m8  left hide-on-small-and-down">
 			<div class="slider">
 				<ul class="slides">
 					<li><img src="images/banner1.jpg"> <!-- random image -->
@@ -58,25 +58,25 @@
 				</ul>
 			</div>
 		</div>
-		<div class="col s6 m3 l3 right">
+		<div class="col s12 m4 right">
 			<div class="row">
 				<form method="post" action="/register">
 					<div>
 						<h1 align="center" class="flow-text">Register</h1>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">account_circle</i> <input
+								id="icon_telephone" type="text" name="name" class="validate"
+								required> <label for="icon_telephone">Name</label>
+						</div>
+						<div class="input-field col s12">
+							<i class="material-icons prefix">email</i> <input
 								id="icon_prefix" type="email" name="email" class="validate"
 								required> <label for="icon_prefix">Email</label>
 						</div>
 						<div class="input-field col s12">
-							<i class="material-icons prefix">polymer</i> <input
+							<i class="material-icons prefix">textsms</i> <input
 								id="icon_telephone" type="password" name="pass" class="validate"
 								required> <label for="icon_telephone">Password</label>
-						</div>
-						<div class="input-field col s12">
-							<i class="material-icons prefix">polymer</i> <input
-								id="icon_telephone" type="text" name="name" class="validate"
-								required> <label for="icon_telephone">name</label>
 						</div>
 						<div class="input-field col s12">
 							<select name="branch" required>
