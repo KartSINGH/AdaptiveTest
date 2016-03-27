@@ -23,14 +23,14 @@ import entity.Test;
 public class Testing extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) {
 		int difficulty = -5;
-		for (int i = 0; i < 2; i++) {
-			Test test = createTest();
+		Test test = createTest();
+		for (int i = 0; i < 3; i++) {
 			Question question = getNextQuestion(difficulty, test);
 			List<Ref<Question>> usedQuestion = test.getQuestion();
 			usedQuestion.add(Ref.create(question));
 			test.setQuestion(usedQuestion);
 			ofy().save().entity(test).now();
-			System.out.println("Q:\t"+question.getQuestion());
+			System.out.println("Q:\t" + question.getQuestion());
 			List<Ref<Option>> optionList = question.getOption();
 			Collections.shuffle(optionList);
 			Iterator<Ref<Option>> optionIterator = optionList.iterator();
@@ -44,8 +44,9 @@ public class Testing extends HttpServlet {
 	public Test createTest() {
 		String testId = new Date() + "Test";
 		List<Ref<Question>> newQuestion = new ArrayList<Ref<Question>>();
-		List<Question> questionList = ofy().load().type(Question.class).list();
-		newQuestion.add(Ref.create(questionList.get(0)));
+		Long id = (long) 1;
+		Question temp = ofy().load().type(Question.class).id(id).now();
+		newQuestion.add(Ref.create(temp));
 		saveTest(testId, newQuestion);
 		Test test = ofy().load().type(Test.class).id(testId).now();
 		return test;

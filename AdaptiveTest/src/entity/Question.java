@@ -33,6 +33,17 @@ public class Question {
 		this.difficulty = difficulty;
 	}
 
+	public Question(Long id, String question, String answer,
+			List<Ref<Option>> option, String course, int difficulty) {
+		super();
+		this.id = id;
+		this.question = question;
+		this.answer = answer;
+		this.option = option;
+		this.course = course;
+		this.difficulty = difficulty;
+	}
+
 	public Long getId() {
 		return id;
 	}

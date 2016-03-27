@@ -50,6 +50,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>Setup</servlet-name>
+		<servlet-class>controller.Setup</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Setup</servlet-name>
+		<url-pattern>/setup</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>Login Page</servlet-name>
 		<jsp-file>/Login.jsp</jsp-file>
 	</servlet>
