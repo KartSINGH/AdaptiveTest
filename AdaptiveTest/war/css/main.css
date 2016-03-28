@@ -2,6 +2,10 @@
 	font-size: 150%;
 	padding-top: 10vh;
 }
-.register{
+
+.register {
 	padding-top: 5vh;
+}
+footer{
+	margin-top: 0 !important;
 }

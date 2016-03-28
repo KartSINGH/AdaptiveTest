@@ -1,6 +1,5 @@
 package entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.googlecode.objectify.Ref;
@@ -25,14 +24,14 @@ public class UserDetails {
 	}
 
 	public UserDetails(String uID, String pass, String name, String college,
-			String branch) {
+			String branch, List<Ref<Test>> test) {
 		super();
 		this.uID = uID;
 		this.pass = pass;
 		this.name = name;
 		this.college = college;
 		this.branch = branch;
-		test = new ArrayList<Ref<Test>>();
+		this.test = test;
 	}
 
 	public String getuID() {

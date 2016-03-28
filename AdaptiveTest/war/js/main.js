@@ -1,12 +1,9 @@
-$(document).ready(function() {
-	$('.slider').slider({
-		full_width : true,
-		indicators : false,
-	});
-});
 $(function() {
 	$(".typewriter").typewriter({
-		'speed' : 100
+		'speed' : 200
 	// default: 300
 	});
+});
+$(document).ready(function() {
+	$('.parallax').parallax();
 });

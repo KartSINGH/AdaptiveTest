@@ -1,18 +1,27 @@
 package dao;
 
+import static dao.OfyService.ofy;
+
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import entity.UserDetails;
+import com.googlecode.objectify.Ref;
 
-import static dao.OfyService.ofy;
+import entity.Test;
+import entity.UserDetails;
 
 public class UserDetailsDao {
 	static UserDetails ud;
 
 	public static boolean save(String uID, String pass, String name,
 			String branch, String college) {
-		UserDetails user = new UserDetails(uID, pass, name, branch, college);
+		String id = "1";
+		Test test = ofy().load().type(Test.class).id(id).now();
+		List<Ref<Test>> temp = new ArrayList<Ref<Test>>();
+		temp.add(Ref.create(test));
+		UserDetails user = new UserDetails(uID, pass, name, branch, college,
+				temp);
 		ofy().save().entity(user);
 		ofy().clear();
 		return true;
