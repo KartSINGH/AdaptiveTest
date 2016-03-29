@@ -47,7 +47,7 @@ public class Testing extends HttpServlet {
 		Long id = (long) 1;
 		Question temp = ofy().load().type(Question.class).id(id).now();
 		newQuestion.add(Ref.create(temp));
-		saveTest(testId, newQuestion);
+		saveTest(testId, newQuestion, new Date());
 		Test test = ofy().load().type(Test.class).id(testId).now();
 		return test;
 	}

@@ -1,7 +1,3 @@
-$(document).ready(function() {
-	$('select').material_select();
-});
-
 google.charts.load('current', {
 	'packages' : [ 'corechart' ]
 });
@@ -45,3 +41,4 @@ function drawChart() {
 		window.attachEvent('onresize', resize);
 	}
 }
+

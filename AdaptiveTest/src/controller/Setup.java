@@ -1,8 +1,10 @@
 package controller;
 
 import static dao.OfyService.ofy;
+import static dao.TestDao.saveTest;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,6 @@ import com.googlecode.objectify.Ref;
 
 import entity.Option;
 import entity.Question;
-import entity.Test;
 
 @SuppressWarnings("serial")
 public class Setup extends HttpServlet {
@@ -30,7 +31,6 @@ public class Setup extends HttpServlet {
 		String testId = "1";
 		List<Ref<Question>> newQuestion = new ArrayList<Ref<Question>>();
 		newQuestion.add(Ref.create(baseTest));
-		Test test = new Test(testId, newQuestion);
-		ofy().save().entity(test).now();
+		saveTest(testId, newQuestion, new Date());
 	}
 }

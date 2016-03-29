@@ -22,46 +22,62 @@
 <link href="css/login.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<nav class="indigo lighten-1" role="navigation">
-		<div class="nav-wrapper container">
-			<a id="logo-container" href="#" class="brand-logo">MyMockTest</a>
-			<ul class="right hide-on-med-and-down ">
-				<li><a href="/">Home</a></li>
-				<li><a href="/about">About Us</a></li>
-				<%
-					if (session.getAttribute("uID") == null) {
-				%>
-				<li><a href="/loginPage">Login</a></li>
-				<%
-					} else {
-				%>
-				<li><a href="/user">Dashboard</a></li>
-				<li><a href="/logout">Logout</a></li>
-				<%
-					}
-				%>
-			</ul>
-			<ul id="nav-mobile" class="side-nav">
-				<li><a href="/">Home</a></li>
-				<li><a href="/about">About Us</a></li>
-				<%
-					if (session.getAttribute("uID") == null) {
-				%>
-				<li><a href="/loginPage">Login</a></li>
-				<%
-					} else {
-				%>
-				<li><a href="/user">Dashboard</a></li>
-				<li><a href="/logout">Logout</a></li>
-				<%
-					}
-				%>
-			</ul>
-			<a href="#" data-activates="nav-mobile" class="button-collapse"><i
-				class="material-icons">menu</i></a>
-		</div>
-	</nav>
-
+	<div class="navbar-fixed">
+		<nav class="indigo lighten-1" role="navigation">
+			<div class="nav-wrapper container">
+				<a id="logo-container" href="#" class="brand-logo">MyMockTest</a>
+				<ul class="right hide-on-med-and-down ">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About Us</a></li>
+					<%
+						if (session.getAttribute("uID") == null) {
+					%>
+					<li><a href="/loginPage">Login</a></li>
+					<%
+						} else {
+					%>
+					<li><a class="dropdown-button" href="#!"
+						data-activates="dropdown"><%=session.getAttribute("name")%><i
+							class="material-icons right">arrow_drop_down</i></a></li>
+					<%
+						}
+					%>
+				</ul>
+				<ul id="nav-mobile" class="side-nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About Us</a></li>
+					<%
+						if (session.getAttribute("uID") == null) {
+					%>
+					<li><a href="/loginPage">Login</a></li>
+					<%
+						} else {
+					%>
+					<li><a class="dropdown-button" href="#!"
+						data-activates="dropdownMobile"><%=session.getAttribute("name")%><i
+							class="material-icons right">arrow_drop_down</i></a></li>
+					<%
+						}
+					%>
+				</ul>
+				<ul id="dropdown" class="dropdown-content">
+					<li><a href="/user">Dashboard</a></li>
+					<li><a href="/setting">Settings</a></li>
+					<li class="divider"></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+				<ul id="dropdownMobile" class="dropdown-content">
+					<li><a href="/user">Dashboard</a></li>
+					<li><a href="/setting">Settings</a></li>
+					<li class="divider"></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i
+					class="material-icons">menu</i></a>
+			</div>
+		</nav>
+	</div>
+	
 	<div class="row mainPage">
 		<div class="col s12 m12 l8 left hide-on-med-and-down">
 			<div class="slider">

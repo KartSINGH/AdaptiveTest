@@ -49,6 +49,33 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<url-pattern>/graph</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>Check Password</servlet-name>
+		<servlet-class>controller.VerifyPassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Check Password</servlet-name>
+		<url-pattern>/verifyPassword</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Update Details</servlet-name>
+		<servlet-class>controller.UpdateController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Update Details</servlet-name>
+		<url-pattern>/update</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>My Test</servlet-name>
+		<servlet-class>controller.CreateTest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>My Test</servlet-name>
+		<url-pattern>/myTest</url-pattern>
+	</servlet-mapping>
+
 
 	<servlet>
 		<servlet-name>Test</servlet-name>
@@ -95,6 +122,51 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<url-pattern>/user</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>Verify</servlet-name>
+		<jsp-file>/VerifyPassword.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Verify</servlet-name>
+		<url-pattern>/verify</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Setting</servlet-name>
+		<jsp-file>/Setting.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Setting</servlet-name>
+		<url-pattern>/setting</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Report</servlet-name>
+		<jsp-file>/Report.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Report</servlet-name>
+		<url-pattern>/report</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>About</servlet-name>
+		<jsp-file>/About.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>About</servlet-name>
+		<url-pattern>/about</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TestPage</servlet-name>
+		<jsp-file>/test.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TestPage</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>Index.jsp</welcome-file>
 	</welcome-file-list>

@@ -12,7 +12,7 @@
 	}
 %>
 
-<title>Dashboard</title>
+<title>Verify Password</title>
 
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -80,29 +80,32 @@
 	</div>
 
 	<div class="container mainPage">
-		<div class="headingPad">
-			<div class="row ">
-				<h1 align="center" class="flow-text">Dashboard</h1>
-				<div class="col s12">
-					<div id="chart" class="chart"></div>
-				</div>
-				<div class="col s12 m6">
-					<div class="card blue-grey darken-1">
-						<a href="/test">
-							<div class="card-content white-text center">
-								<span class="card-title">Take Test</span>
-							</div>
-						</a>
+		<div class="row">
+			<div class="col s12 m6 offset-m3 z-depth-2">
+				<form method="post" action="/verifyPassword">
+					<div class="headingPad">
+						<h1 align="center" class="flow-text">Confirm Password</h1>
+						<div class="input-field col s12">
+							<i class="material-icons prefix">account_circle</i> <input
+								id="icon_prefix" type="email" name="email" class="validate"
+								required value="<%=session.getAttribute("uID")%>" disabled>
+							<label for="icon_prefix">Email ID</label>
+						</div>
+						<div class="input-field col s12">
+							<i class="material-icons prefix">textsms</i> <input
+								id="icon_telephone" type="password" name="pass" class="validate"
+								required> <label for="icon_telephone">Password</label>
+						</div>
+
+						<div class="row center">
+
+							<button class="btn waves-effect waves-light" type="submit"
+								name="action">
+								Submit <i class="material-icons right">send</i>
+							</button>
+						</div>
 					</div>
-				</div><div class="col s12 m6">
-					<div class="card blue-grey darken-1">
-						<a href="/report">
-							<div class="card-content white-text center">
-								<span class="card-title">Show Complete Report</span>
-							</div>
-						</a>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -132,6 +135,5 @@
 		src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="js/materialize.js"></script>
 	<script src="js/init.js"></script>
-	<script src="js/user.js"></script>
 </body>
 </html>

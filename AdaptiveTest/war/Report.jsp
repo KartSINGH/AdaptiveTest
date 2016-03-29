@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Iterator"%>
+<%@ page import="entity.UserDetails"%>
+<%@ page import="entity.Test"%>
+<%@ page import="static dao.OfyService.ofy"%>
+<%@ page import="com.googlecode.objectify.Ref"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +18,7 @@
 	}
 %>
 
-<title>Dashboard</title>
+<title>Report</title>
 
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -79,29 +85,40 @@
 		</nav>
 	</div>
 
-	<div class="container mainPage">
+	<div class="container mainPage ">
 		<div class="headingPad">
 			<div class="row ">
-				<h1 align="center" class="flow-text">Dashboard</h1>
+				<h1 align="center" class="flow-text">Complete Report</h1>
 				<div class="col s12">
 					<div id="chart" class="chart"></div>
 				</div>
-				<div class="col s12 m6">
-					<div class="card blue-grey darken-1">
-						<a href="/test">
-							<div class="card-content white-text center">
-								<span class="card-title">Take Test</span>
-							</div>
-						</a>
-					</div>
-				</div><div class="col s12 m6">
-					<div class="card blue-grey darken-1">
-						<a href="/report">
-							<div class="card-content white-text center">
-								<span class="card-title">Show Complete Report</span>
-							</div>
-						</a>
-					</div>
+				<div class="col s10 offset-m1 headingPad">
+					<table class="highlight centered responsive-table">
+						<thead>
+							<tr>
+								<th data-field="date">Date</th>
+								<th data-field="score">Score</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+						UserDetails user = ofy().load().type(UserDetails.class).id((String)session.getAttribute("uID")).now();
+						List<Ref<Test>> test = user.getTest();
+						Iterator<Ref<Test>> iterator = test.iterator();
+						while(iterator.hasNext()){
+							Test t = iterator.next().get();
+							if(!(t.getId().equals("1"))){
+					%>
+							<tr>
+								<td><%= t.getDate() %></td>
+								<td><%= t.getScore() %></td>
+							</tr>
+							<%
+							}
+						}
+					%>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -116,8 +133,6 @@
 						students working on this project like it's our full time job. Any
 						amount would help support and continue development on this project
 						and is greatly appreciated.</p>
-
-
 				</div>
 			</div>
 		</div>

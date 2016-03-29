@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.Date;
 import java.util.List;
 
 import com.googlecode.objectify.Ref;
@@ -11,19 +12,21 @@ import com.googlecode.objectify.annotation.Index;
 public class Test {
 	@Id
 	String id;
-	@Index
 	List<Ref<Question>> question;
 	int score;
+	@Index
+	Date date;
 
 	public Test() {
 		super();
 	}
 
-	public Test(String id, List<Ref<Question>> question) {
+	public Test(String id, List<Ref<Question>> question, int score, Date date) {
 		super();
 		this.id = id;
 		this.question = question;
-		this.score = 0;
+		this.score = score;
+		this.date = date;
 	}
 
 	public String getId() {
@@ -48,6 +51,14 @@ public class Test {
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }
