@@ -53,12 +53,16 @@ public class QuestionDao {
 
 	public static int getNextDifficulty(Question question, int difficulty,
 			String answer, Test test) {
-		if (question.getAnswer().equals(answer)) {
-			difficulty++;
-			test.setScore(test.getScore() + 1);
-			ofy().save().entity(test).now();
-		} else
-			difficulty--;
-		return difficulty;
+		if (answer == null) {
+			return difficulty;
+		} else {
+			if (question.getAnswer().equals(answer)) {
+				difficulty++;
+				test.setScore(test.getScore() + 1);
+				ofy().save().entity(test).now();
+			} else
+				difficulty--;
+			return difficulty;
+		}
 	}
 }

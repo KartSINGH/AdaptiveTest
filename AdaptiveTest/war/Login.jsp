@@ -119,9 +119,7 @@
 								id="icon_telephone" type="password" name="pass" class="validate"
 								required> <label for="icon_telephone">Password</label>
 						</div>
-
 						<div class="row center">
-
 							<button class="btn waves-effect waves-light" type="submit"
 								name="action">
 								Submit <i class="material-icons right">send</i>

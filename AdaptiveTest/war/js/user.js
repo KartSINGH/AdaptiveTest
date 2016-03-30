@@ -10,13 +10,13 @@ function drawChart() {
 		dataType : "json",
 		async : false
 	}).responseText);
-
+	
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'TestID');
 	data.addColumn('number', 'Score');
 	var i, l = jsonData.length;
 	for (i = 0; i < l; i++) {
-		var temp = [ jsonData[i].id, jsonData[i].score ];
+		var temp = [ jsonData[i].date, jsonData[i].score ];
 		data.addRow(temp);
 	}
 	var options = {

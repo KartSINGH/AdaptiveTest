@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.google.gson.Gson;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.googlecode.objectify.Ref;
 
 import entity.Test;
@@ -25,14 +28,22 @@ public class GraphController extends HttpServlet {
 		String uID = (String) session.getAttribute("uID");
 		UserDetails user = ofy().load().type(UserDetails.class).id(uID).now();
 		Iterator<Ref<Test>> test = user.getTest().iterator();
-		Gson gson = new Gson();
-		StringBuffer json = new StringBuffer();
+		JSONArray jArray = new JSONArray();
+		JSONObject jObject = new JSONObject();
 		while (test.hasNext()) {
 			Test temp = test.next().get();
-			// if (!temp.getId().equals("1"))
-			json.append(gson.toJson(temp));
+			if (!(temp.getId().equals("1"))) {
+				try {
+					jObject.put("date", temp.getDate());
+					jObject.put("score", temp.getScore());
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				jArray.put(jObject);
+			}
 		}
 		PrintWriter out = res.getWriter();
-		out.println(json);
+		out.write(jArray.toString());
+		;
 	}
 }

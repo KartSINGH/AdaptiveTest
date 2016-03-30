@@ -7,6 +7,7 @@ import static dao.TestDao.createTest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServlet;
@@ -14,9 +15,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.google.gson.Gson;
 import com.googlecode.objectify.Ref;
 
+import entity.Option;
 import entity.Question;
 import entity.Test;
 import entity.UserDetails;
@@ -28,7 +34,6 @@ public class CreateTest extends HttpServlet {
 		HttpSession session = req.getSession();
 		String uID = (String) session.getAttribute("uID");
 		String testId = req.getParameter("test");
-		int difficulty = Integer.parseInt(req.getParameter("difficulty"));
 		String answer = req.getParameter("answer");
 		Gson gson = new Gson();
 		PrintWriter out = res.getWriter();
@@ -42,14 +47,37 @@ public class CreateTest extends HttpServlet {
 				list.remove(0);
 			user.setTest(list);
 			ofy().save().entity(user).now();
-			out.println(gson.toJson(test));
+			session.setAttribute("difficulty", 5);
+			out.println(gson.toJson(test.getId()));
 		} else {
-			Test test = gson.fromJson(testId, Test.class);
+			int difficulty = (Integer) session.getAttribute("difficulty");
+			Test test = ofy().load().type(Test.class).id(testId).now();
 			List<Ref<Question>> list = test.getQuestion();
 			Question question = list.get(list.size() - 1).get();
 			difficulty = getNextDifficulty(question, difficulty, answer, test);
+			session.setAttribute("difficulty", difficulty);
 			question = getNextQuestion(difficulty, test);
-			out.println(gson.toJson(question));
+			List<Ref<Option>> optionList = question.getOption();
+			Iterator<Ref<Option>> optionIterator = optionList.iterator();
+			JSONArray jArray = new JSONArray();
+			JSONObject temp = new JSONObject();
+			try {
+				temp.put("question", question.getQuestion());
+			} catch (JSONException e1) {
+				e1.printStackTrace();
+			}
+			jArray.put(temp);
+			while (optionIterator.hasNext()) {
+				temp = new JSONObject();
+				try {
+					temp.put("option", optionIterator.next().get().getOption());
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				jArray.put(temp);
+			}
+			res.setContentType("application/JSON");
+			out.write(jArray.toString());
 		}
 	}
 }
