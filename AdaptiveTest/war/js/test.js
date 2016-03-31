@@ -1,4 +1,4 @@
-var minutes = 2;
+var minutes = 10;
 var seconds = 0;
 var flag
 var color = true;
@@ -41,20 +41,39 @@ function getQuestion() {
 	if (counter > 5) {
 		alert("Test Completed");
 		window.open("/user", "_self");
-	}
-	if (counter != 0) {
-		var answer = $('input[name="group1"]:checked', '#testOption').val();
-		console.log(answer);
-		if (answer == null) {
-			Materialize.toast('Please Select a Valid Answer', 4000);
+	} else {
+		if (counter != 0) {
+			var answer = $('input[name="group1"]:checked', '#testOption').val();
+			console.log(answer);
+			if (answer == null) {
+				Materialize.toast('Please Select a Valid Answer', 4000);
+			} else {
+				$
+						.ajax({
+							url : "/myTest",
+							data : {
+								'test' : testid,
+								'answer' : answer
+							},
+							success : function(response) {
+								loadQuestion(response);
+							},
+							error : function(response) {
+								Materialize
+										.toast(
+												'Something Went Wrong. Please Try Again',
+												4000);
+							}
+						});
+			}
 		} else {
 			$.ajax({
 				url : "/myTest",
 				data : {
-					'test' : testid,
-					'answer' : answer
+					'test' : testid
 				},
 				success : function(response) {
+					counter++;
 					loadQuestion(response);
 				},
 				error : function(response) {
@@ -63,21 +82,6 @@ function getQuestion() {
 				}
 			});
 		}
-	} else {
-		$.ajax({
-			url : "/myTest",
-			data : {
-				'test' : testid
-			},
-			success : function(response) {
-				counter++;
-				loadQuestion(response);
-			},
-			error : function(response) {
-				Materialize.toast('Something Went Wrong. Please Try Again',
-						4000);
-			}
-		});
 	}
 	return false;
 }

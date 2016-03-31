@@ -22,7 +22,9 @@ public class QuestionDao {
 
 	public static Question getNextQuestion(int difficulty, Test test) {
 		List<Question> questionList = ofy().load().type(Question.class).list();
-		Collections.shuffle(questionList);
+		int y = 0 + (int) (Math.random() * 5);
+		for (int x = 0; x < y; x++)
+			Collections.shuffle(questionList);
 		Iterator<Question> questionIterator = questionList.iterator();
 		while (questionIterator.hasNext()) {
 			Question question = questionIterator.next();

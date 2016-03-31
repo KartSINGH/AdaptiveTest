@@ -64,7 +64,9 @@ public class CreateTest extends HttpServlet {
 			test.setQuestion(list);
 			ofy().save().entity(test).now();
 			List<Ref<Option>> optionList = question.getOption();
-			Collections.shuffle(optionList);
+			int y = 0 + (int) (Math.random() * 5);
+			for (int x = 0; x < y; x++)
+				Collections.shuffle(optionList);
 			Iterator<Ref<Option>> optionIterator = optionList.iterator();
 			JSONArray jArray = new JSONArray();
 			JSONObject temp = new JSONObject();
