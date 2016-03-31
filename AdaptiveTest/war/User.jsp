@@ -88,19 +88,16 @@
 				</div>
 				<div class="col s12 m6">
 					<div class="card blue-grey darken-1">
-						<a href="/test">
-							<div class="card-content white-text center">
+							<div class="card-content white-text center" onClick="takeTest()">
 								<span class="card-title">Take Test</span>
 							</div>
-						</a>
 					</div>
-				</div><div class="col s12 m6">
+				</div>
+				<div class="col s12 m6">
 					<div class="card blue-grey darken-1">
-						<a href="/report">
-							<div class="card-content white-text center">
-								<span class="card-title">Show Complete Report</span>
-							</div>
-						</a>
+						<div class="card-content white-text center" onClick="showReport()">
+							<span class="card-title">Show Complete Report</span>
+						</div>
 					</div>
 				</div>
 			</div>

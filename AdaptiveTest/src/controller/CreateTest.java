@@ -7,6 +7,7 @@ import static dao.TestDao.createTest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -57,7 +58,13 @@ public class CreateTest extends HttpServlet {
 			difficulty = getNextDifficulty(question, difficulty, answer, test);
 			session.setAttribute("difficulty", difficulty);
 			question = getNextQuestion(difficulty, test);
+			list.add(Ref.create(question));
+			if (list.get(0).get().getId().equals(1))
+				list.remove(0);
+			test.setQuestion(list);
+			ofy().save().entity(test).now();
 			List<Ref<Option>> optionList = question.getOption();
+			Collections.shuffle(optionList);
 			Iterator<Ref<Option>> optionIterator = optionList.iterator();
 			JSONArray jArray = new JSONArray();
 			JSONObject temp = new JSONObject();

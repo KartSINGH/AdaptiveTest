@@ -4,13 +4,12 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-
 	var jsonData = JSON.parse($.ajax({
 		url : "/graph",
 		dataType : "json",
 		async : false
 	}).responseText);
-	
+
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'TestID');
 	data.addColumn('number', 'Score');
@@ -42,3 +41,10 @@ function drawChart() {
 	}
 }
 
+function showReport() {
+	window.open("/report", "_self");
+}
+
+function takeTest() {
+	window.open("/test", "_self");
+}

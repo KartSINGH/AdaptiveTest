@@ -29,21 +29,20 @@ public class GraphController extends HttpServlet {
 		UserDetails user = ofy().load().type(UserDetails.class).id(uID).now();
 		Iterator<Ref<Test>> test = user.getTest().iterator();
 		JSONArray jArray = new JSONArray();
-		JSONObject jObject = new JSONObject();
 		while (test.hasNext()) {
 			Test temp = test.next().get();
 			if (!(temp.getId().equals("1"))) {
 				try {
+					JSONObject jObject = new JSONObject();
 					jObject.put("date", temp.getDate());
 					jObject.put("score", temp.getScore());
+					jArray.put(jObject);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				jArray.put(jObject);
 			}
 		}
 		PrintWriter out = res.getWriter();
 		out.write(jArray.toString());
-		;
 	}
 }

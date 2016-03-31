@@ -38,9 +38,8 @@
 					<span class="right flow-test" id="timer"></span>
 					<h1 align="center" class="flow-text">Test</h1>
 					<span class="right" id="timer"></span>
-
-					<form onSubmit="getQuestion()">
-						<label class="flow-text">Question: <span id="question"></span></label>
+					<form onSubmit="return getQuestion()" id="testOption" method="get">
+						<label class="flow-text">Question <span id="question"></span></label>
 						<p>
 							<input class="with-gap" name="group1" type="radio" id="test1" />
 							<label for="test1" id="op1"></label>

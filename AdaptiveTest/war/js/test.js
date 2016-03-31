@@ -1,8 +1,9 @@
-var minutes = 100;
-var seconds = 20;
+var minutes = 2;
+var seconds = 0;
 var flag
 var color = true;
 var testid = null;
+var counter = 0;
 
 function updateClock() {
 	if (seconds == 0) {
@@ -20,6 +21,7 @@ function updateClock() {
 		}
 	}
 	if (seconds == 0 && minutes == 0) {
+		alert("Test Completed");
 		window.open("/user", "_self");
 	}
 
@@ -36,32 +38,84 @@ function initiate(response) {
 }
 
 function getQuestion() {
-	
-	$.ajax({
-		url : "/myTest",
-		data : {
-			'test' : testid
-		},
-		success : function(response) {
-			loadQuestion(response);
+	if (counter > 5) {
+		alert("Test Completed");
+		window.open("/user", "_self");
+	}
+	if (counter != 0) {
+		var answer = $('input[name="group1"]:checked', '#testOption').val();
+		console.log(answer);
+		if (answer == null) {
+			Materialize.toast('Please Select a Valid Answer', 4000);
+		} else {
+			$.ajax({
+				url : "/myTest",
+				data : {
+					'test' : testid,
+					'answer' : answer
+				},
+				success : function(response) {
+					loadQuestion(response);
+				},
+				error : function(response) {
+					Materialize.toast('Something Went Wrong. Please Try Again',
+							4000);
+				}
+			});
 		}
-	});
+	} else {
+		$.ajax({
+			url : "/myTest",
+			data : {
+				'test' : testid
+			},
+			success : function(response) {
+				counter++;
+				loadQuestion(response);
+			},
+			error : function(response) {
+				Materialize.toast('Something Went Wrong. Please Try Again',
+						4000);
+			}
+		});
+	}
+	return false;
 }
 
 function loadQuestion(response) {
 	var rs = jQuery.parseJSON(response);
-	$("#question").html(rs[0].question);
+	$('input[name="group1"]:checked', '#testOption').removeAttr("checked");
+	$("#question").html(counter + ": " + rs[0].question);
+	counter++;
 	for (var i = 1; i < response.length; i++) {
 		$("#op" + i).html(rs[i].option);
+		$("#test" + i).val(rs[i].option);
+	}
+}
+
+function disableF5(e) {
+	if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82)
+		e.preventDefault();
+};
+
+function disableclick(e) {
+	if (event.button == 2) {
+		alert("RightClick Not Allowed");
+		return false;
 	}
 }
 
 $(document).ready(function() {
 	setInterval('updateClock()', 1000);
+	$(document).on("keydown", disableF5);
+	document.onmousedown = disableclick;
 	$.ajax({
 		url : "/myTest",
 		success : function(response) {
 			initiate(response);
+		},
+		error : function(response) {
+			Materialize.toast('Something Went Wrong. Please Try Again', 4000);
 		}
 	});
 });
