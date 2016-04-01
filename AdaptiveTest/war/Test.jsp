@@ -35,7 +35,7 @@
 		<div class="row">
 			<div class="col s10 offset-s1">
 				<div class="headingPad">
-					<span class="right flow-test" id="timer"></span>
+					<span class="left flow-test" id="scoreCard"></span><span class="right flow-test" id="timer"></span>
 					<h1 align="center" class="flow-text">Test</h1>
 					<span class="right" id="timer"></span>
 					<form onSubmit="return getQuestion()" id="testOption" method="get">

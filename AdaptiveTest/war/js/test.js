@@ -5,6 +5,7 @@ var color = true;
 var testid = null;
 var counter = 0;
 var limit = 0;
+var score = 0;
 
 function updateClock() {
 	if (seconds == 0) {
@@ -34,9 +35,10 @@ function updateClock() {
 
 function initiate(response) {
 	var rs = jQuery.parseJSON(response);
-	time = rs[0].time;
+	time = rs[0].time * 10;
 	testid = rs[1].testid;
 	limit = rs[2].no;
+	$('#scoreCard').html("Score: " + score);
 	getQuestion();
 }
 
@@ -93,6 +95,8 @@ function loadQuestion(response) {
 	$('input[name="group1"]:checked', '#testOption').removeAttr("checked");
 	$("#question").html(counter + ": " + rs[0].question);
 	counter++;
+	score = rs[5].score;
+	$('#scoreCard').html("Score: " + score);
 	for (var i = 1; i < response.length; i++) {
 		$("#op" + i).html(rs[i].option);
 		$("#test" + i).val(rs[i].option);

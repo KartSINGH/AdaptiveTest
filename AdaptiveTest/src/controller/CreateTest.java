@@ -54,7 +54,7 @@ public class CreateTest extends HttpServlet {
 				JSONObject time = new JSONObject();
 				JSONObject id = new JSONObject();
 				JSONObject no = new JSONObject();
-				time.put("time", questionCount*0.4);
+				time.put("time", questionCount * 0.4);
 				id.put("testid", test.getId());
 				no.put("no", questionCount);
 				jArray.put(time);
@@ -96,6 +96,13 @@ public class CreateTest extends HttpServlet {
 					e.printStackTrace();
 				}
 				jArray.put(temp);
+			}
+			temp = new JSONObject();
+			try {
+				temp.put("score", test.getScore());
+				jArray.put(temp);
+			} catch (JSONException e) {
+				e.printStackTrace();
 			}
 			res.setContentType("application/JSON");
 			out.write(jArray.toString());
