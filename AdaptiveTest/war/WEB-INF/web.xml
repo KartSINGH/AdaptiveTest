@@ -76,6 +76,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<url-pattern>/myTest</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>Call Back</servlet-name>
+		<servlet-class>controller.GoogleCallBack</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Call Back</servlet-name>
+		<url-pattern>/callback</url-pattern>
+	</servlet-mapping>
+
 
 	<servlet>
 		<servlet-name>Test</servlet-name>
@@ -166,7 +175,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>TestPage</servlet-name>
 		<url-pattern>/test</url-pattern>
 	</servlet-mapping>
-	
+
 	<welcome-file-list>
 		<welcome-file>Index.jsp</welcome-file>
 	</welcome-file-list>

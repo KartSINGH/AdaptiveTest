@@ -35,7 +35,7 @@ function updateClock() {
 
 function initiate(response) {
 	var rs = jQuery.parseJSON(response);
-	time = rs[0].time * 10;
+	time = rs[0].time;
 	testid = rs[1].testid;
 	limit = rs[2].no;
 	$('#scoreCard').html("Score: " + score);

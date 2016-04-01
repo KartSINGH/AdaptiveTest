@@ -77,7 +77,7 @@
 			</div>
 		</nav>
 	</div>
-	
+
 	<div class="row mainPage">
 		<div class="col s12 m12 l8 left hide-on-med-and-down">
 			<div class="slider">
@@ -125,6 +125,11 @@
 								Submit <i class="material-icons right">send</i>
 							</button>
 						</div>
+						<p class="flow-text center">
+							<a
+								href="https://accounts.google.com/o/oauth2/auth?&client_id=585144124880-9rq2hkc3r42lkb0dflmsbj738320ru82.apps.googleusercontent.com&redirect_uri=http://www.mymock-test.appspot.com/callback&approval_prompt=force&response_type=code&scope=email">
+								Sign in with Google </a>
+						</p>
 						<p class="flow-text center">
 							If you are a new user <a href="/registerPage">Register</a>
 						</p>

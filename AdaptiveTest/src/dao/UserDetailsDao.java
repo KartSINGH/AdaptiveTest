@@ -22,7 +22,7 @@ public class UserDetailsDao {
 		temp.add(Ref.create(test));
 		UserDetails user = new UserDetails(uID, pass, name, branch, college,
 				temp);
-		ofy().save().entity(user);
+		ofy().save().entity(user).now();
 		ofy().clear();
 		return true;
 	}

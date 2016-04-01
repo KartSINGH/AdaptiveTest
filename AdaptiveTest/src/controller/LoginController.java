@@ -1,14 +1,18 @@
 package controller;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.*;
-import static dao.UserDetailsDao.validate;
-import static dao.UserDetailsDao.getuID;
-import static dao.UserDetailsDao.getName;
 import static dao.UserDetailsDao.getBranch;
 import static dao.UserDetailsDao.getCollege;
-import static dao.UserDetailsDao.getPass;
+import static dao.UserDetailsDao.getName;
+import static dao.UserDetailsDao.getuID;
+import static dao.UserDetailsDao.validate;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 public class LoginController extends HttpServlet {
@@ -23,7 +27,6 @@ public class LoginController extends HttpServlet {
 			sess.setAttribute("college", getCollege());
 			sess.setAttribute("branch", getBranch());
 			sess.setAttribute("name", getName());
-			sess.setAttribute("pass", getPass());
 			res.sendRedirect("/user");
 		} else
 			res.sendRedirect("/registerPage");
