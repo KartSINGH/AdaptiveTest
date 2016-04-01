@@ -20,7 +20,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.gson.Gson;
 import com.googlecode.objectify.Ref;
 
 import entity.Option;
@@ -36,8 +35,10 @@ public class CreateTest extends HttpServlet {
 		String uID = (String) session.getAttribute("uID");
 		String testId = req.getParameter("test");
 		String answer = req.getParameter("answer");
-		Gson gson = new Gson();
 		PrintWriter out = res.getWriter();
+		JSONArray jArray = new JSONArray();
+		JSONObject temp = new JSONObject();
+		int questionCount = 5;
 		if (testId == null) {
 			Test test = createTest();
 			UserDetails user = ofy().load().type(UserDetails.class).id(uID)
@@ -49,7 +50,20 @@ public class CreateTest extends HttpServlet {
 			user.setTest(list);
 			ofy().save().entity(user).now();
 			session.setAttribute("difficulty", 5);
-			out.println(gson.toJson(test.getId()));
+			try {
+				JSONObject time = new JSONObject();
+				JSONObject id = new JSONObject();
+				JSONObject no = new JSONObject();
+				time.put("time", questionCount*0.4);
+				id.put("testid", test.getId());
+				no.put("no", questionCount);
+				jArray.put(time);
+				jArray.put(id);
+				jArray.put(no);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			out.println(jArray.toString());
 		} else {
 			int difficulty = (Integer) session.getAttribute("difficulty");
 			Test test = ofy().load().type(Test.class).id(testId).now();
@@ -68,8 +82,6 @@ public class CreateTest extends HttpServlet {
 			for (int x = 0; x < y; x++)
 				Collections.shuffle(optionList);
 			Iterator<Ref<Option>> optionIterator = optionList.iterator();
-			JSONArray jArray = new JSONArray();
-			JSONObject temp = new JSONObject();
 			try {
 				temp.put("question", question.getQuestion());
 			} catch (JSONException e1) {

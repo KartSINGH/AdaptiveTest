@@ -1,9 +1,10 @@
-var minutes = 10;
+var minutes = 2;
 var seconds = 0;
 var flag
 var color = true;
 var testid = null;
 var counter = 0;
+var limit = 0;
 
 function updateClock() {
 	if (seconds == 0) {
@@ -33,18 +34,19 @@ function updateClock() {
 
 function initiate(response) {
 	var rs = jQuery.parseJSON(response);
-	testid = rs;
+	time = rs[0].time;
+	testid = rs[1].testid;
+	limit = rs[2].no;
 	getQuestion();
 }
 
 function getQuestion() {
-	if (counter > 5) {
+	if (counter > limit) {
 		alert("Test Completed");
 		window.open("/user", "_self");
 	} else {
 		if (counter != 0) {
 			var answer = $('input[name="group1"]:checked', '#testOption').val();
-			console.log(answer);
 			if (answer == null) {
 				Materialize.toast('Please Select a Valid Answer', 4000);
 			} else {
