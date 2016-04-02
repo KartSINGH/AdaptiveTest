@@ -90,8 +90,7 @@ public class GoogleCallBack extends HttpServlet {
 				while ((line = reader.readLine()) != null) {
 					outputString += line;
 				}
-				System.out.println(outputString);
-
+				
 				// Convert JSON response into Pojo class
 				GooglePojo data = new Gson().fromJson(outputString,
 						GooglePojo.class);
@@ -105,13 +104,14 @@ public class GoogleCallBack extends HttpServlet {
 					String id = dateFormat.format(date);
 					// Save Data and Login
 					save(data.getEmail(), id + "id:" + data.getId(),
-							data.getName(), "Branch", "MSIT");
+							data.getName(), "Branch", "MSIT", "google");
 					UserDetails ud = ofy().load().type(UserDetails.class)
 							.id(data.getEmail()).now();
 					sess.setAttribute("uID", ud.getuID());
 					sess.setAttribute("college", ud.getCollege());
 					sess.setAttribute("branch", ud.getBranch());
 					sess.setAttribute("name", ud.getName());
+					sess.setAttribute("source", ud.getSource());
 					response.sendRedirect("/user");
 				} else {
 					// Login
@@ -121,6 +121,7 @@ public class GoogleCallBack extends HttpServlet {
 					sess.setAttribute("college", ud.getCollege());
 					sess.setAttribute("branch", ud.getBranch());
 					sess.setAttribute("name", ud.getName());
+					sess.setAttribute("source", ud.getSource());
 					response.sendRedirect("/user");
 				}
 				writer.close();
@@ -138,7 +139,7 @@ public class GoogleCallBack extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Oops. Something went wrong!');");
-			out.println("window.location = '/loginCheck';");
+			out.println("window.location = '/loginPage';");
 			out.println("</script>");
 		}
 	}

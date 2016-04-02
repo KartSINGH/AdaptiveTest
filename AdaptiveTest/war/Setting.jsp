@@ -10,10 +10,12 @@
 	if (session.getAttribute("uID") == null) {
 		response.sendRedirect("/loginPage");
 	}
-	if (session.getAttribute("verified") == null) {
-		response.sendRedirect("/verify");
-	} else {
-		session.removeAttribute("verified");
+	if (session.getAttribute("source") != "google") {
+		if (session.getAttribute("verified") == null) {
+			response.sendRedirect("/verify");
+		} else {
+			session.removeAttribute("verified");
+		}
 	}
 %>
 

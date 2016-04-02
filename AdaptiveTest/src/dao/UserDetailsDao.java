@@ -15,13 +15,13 @@ public class UserDetailsDao {
 	static UserDetails ud;
 
 	public static boolean save(String uID, String pass, String name,
-			String branch, String college) {
+			String branch, String college, String source) {
 		String id = "1";
 		Test test = ofy().load().type(Test.class).id(id).now();
 		List<Ref<Test>> temp = new ArrayList<Ref<Test>>();
 		temp.add(Ref.create(test));
 		UserDetails user = new UserDetails(uID, pass, name, branch, college,
-				temp);
+				temp, source);
 		ofy().save().entity(user).now();
 		ofy().clear();
 		return true;
@@ -73,5 +73,9 @@ public class UserDetailsDao {
 
 	public static String getCollege() {
 		return ud.getCollege();
+	}
+
+	public static String getSource() {
+		return ud.getSource();
 	}
 }

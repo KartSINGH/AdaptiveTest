@@ -18,7 +18,7 @@ public class RegisterController extends HttpServlet {
 		String college = "MSIT";
 		String branch = req.getParameter("branch");
 		if (check(uID)) {
-			if (save(uID, pass, name, branch, college)) {
+			if (save(uID, pass, name, branch, college,"form")) {
 				res.sendRedirect("/loginPage");
 			} else
 				res.sendRedirect("/registerPage");

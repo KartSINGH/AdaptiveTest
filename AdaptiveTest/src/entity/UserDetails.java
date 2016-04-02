@@ -18,13 +18,14 @@ public class UserDetails {
 	String college;
 	String branch;
 	List<Ref<Test>> test;
-
+	String source;
+	
 	public UserDetails() {
 		super();
 	}
 
 	public UserDetails(String uID, String pass, String name, String college,
-			String branch, List<Ref<Test>> test) {
+			String branch, List<Ref<Test>> test, String source) {
 		super();
 		this.uID = uID;
 		this.pass = pass;
@@ -32,6 +33,7 @@ public class UserDetails {
 		this.college = college;
 		this.branch = branch;
 		this.test = test;
+		this.source = source;
 	}
 
 	public String getuID() {
@@ -80,6 +82,14 @@ public class UserDetails {
 
 	public void setTest(List<Ref<Test>> test) {
 		this.test = test;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
 	}
 
 }
