@@ -82,7 +82,7 @@
 	<div class="container mainPage">
 		<div class="row">
 			<div class="col s12 m6 offset-m3 z-depth-2">
-				<form method="post" action="/verifyPassword">
+				<form onSubmit="return verify()">
 					<div class="headingPad">
 						<h1 align="center" class="flow-text">Confirm Password</h1>
 						<div class="input-field col s12">
@@ -93,12 +93,10 @@
 						</div>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">textsms</i> <input
-								id="icon_telephone" type="password" name="pass" class="validate"
+								id="pass" type="password" name="pass" class="validate"
 								required> <label for="icon_telephone">Password</label>
 						</div>
-
 						<div class="row center">
-
 							<button class="btn waves-effect waves-light" type="submit"
 								name="action">
 								Submit <i class="material-icons right">send</i>
@@ -119,8 +117,6 @@
 						students working on this project like it's our full time job. Any
 						amount would help support and continue development on this project
 						and is greatly appreciated.</p>
-
-
 				</div>
 			</div>
 		</div>
@@ -131,9 +127,8 @@
 
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript"
-		src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="js/materialize.js"></script>
 	<script src="js/init.js"></script>
+	<script src="js/setting.js"></script>
 </body>
 </html>

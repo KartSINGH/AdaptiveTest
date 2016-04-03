@@ -1,10 +1,6 @@
 package controller;
 
-import static dao.UserDetailsDao.getBranch;
-import static dao.UserDetailsDao.getCollege;
-import static dao.UserDetailsDao.getName;
-import static dao.UserDetailsDao.getuID;
-import static dao.UserDetailsDao.validate;
+import static dao.OfyService.ofy;
 
 import java.io.IOException;
 
@@ -14,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import entity.UserDetails;
+
 @SuppressWarnings("serial")
 public class LoginController extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
@@ -21,14 +19,20 @@ public class LoginController extends HttpServlet {
 		res.setContentType("text/html");
 		String uID = req.getParameter("email");
 		String pass = req.getParameter("pass");
-		if (validate(uID, pass)) {
-			HttpSession sess = req.getSession();
-			sess.setAttribute("uID", getuID());
-			sess.setAttribute("college", getCollege());
-			sess.setAttribute("branch", getBranch());
-			sess.setAttribute("name", getName());
-			res.sendRedirect("/user");
-		} else
-			res.sendRedirect("/registerPage");
+		UserDetails ud = ofy().load().type(UserDetails.class).id(uID).now();
+		if (ud == null)
+			res.setStatus(404);
+		else {
+			if (ud.getPass().equals(pass)) {
+				HttpSession sess = req.getSession();
+				sess.setAttribute("uID", ud.getuID());
+				sess.setAttribute("college", ud.getCollege());
+				sess.setAttribute("branch", ud.getBranch());
+				sess.setAttribute("name", ud.getName());
+				sess.setAttribute("source", ud.getSource());
+				res.sendRedirect("/user");
+			} else
+				res.setStatus(403);
+		}
 	}
 }

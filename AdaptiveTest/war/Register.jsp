@@ -76,7 +76,7 @@
 			</div>
 		</nav>
 	</div>
-	
+
 	<div class="row mainPage">
 		<div class="col s12 m12 l8 left hide-on-med-and-down">
 			<div class="slider">
@@ -105,26 +105,26 @@
 		</div>
 		<div class="col s12 m12 l4 right">
 			<div class="row">
-				<form method="post" action="/register">
+				<form onSubmit="return register()" id="regform">
 					<div>
 						<h1 align="center" class="flow-text">Register</h1>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">account_circle</i> <input
-								id="icon_telephone" type="text" name="name" class="validate"
-								required> <label for="icon_telephone">Name</label>
+								id="name" type="text" name="name" class="validate" required>
+							<label for="icon_telephone">Name</label>
 						</div>
 						<div class="input-field col s12">
-							<i class="material-icons prefix">email</i> <input
-								id="icon_prefix" type="email" name="email" class="validate"
-								required> <label for="icon_prefix">Email</label>
+							<i class="material-icons prefix">email</i> <input id="email"
+								type="email" name="email" class="validate" required> <label
+								for="icon_prefix">Email</label>
 						</div>
 						<div class="input-field col s12">
-							<i class="material-icons prefix">textsms</i> <input
-								id="icon_telephone" type="password" name="pass" class="validate"
-								required> <label for="icon_telephone">Password</label>
+							<i class="material-icons prefix">textsms</i> <input id="pass"
+								type="password" name="pass" class="validate" required> <label
+								for="icon_telephone">Password</label>
 						</div>
 						<div class="input-field col s12">
-							<select name="branch" required>
+							<select name="branch" id="branch" required>
 								<i class="material-icons prefix">input</i>
 								<option value="" disabled selected>Select Course</option>
 								<option value="Computer Science">Computer Science</option>

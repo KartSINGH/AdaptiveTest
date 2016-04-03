@@ -10,7 +10,7 @@
 	if (session.getAttribute("uID") == null) {
 		response.sendRedirect("/loginPage");
 	}
-	if (session.getAttribute("source") != "google") {
+	if (!(session.getAttribute("source").equals("google"))) {
 		if (session.getAttribute("verified") == null) {
 			response.sendRedirect("/verify");
 		} else {
@@ -89,7 +89,7 @@
 	<div class="container mainPage">
 		<div class="row">
 			<div class="col s12 m6 offset-m3  z-depth-2">
-				<form method="post" action="/update">
+				<form onSubmit="return update()">
 					<div class="headingPad">
 						<h1 align="center" class="flow-text">Change Details</h1>
 						<div class="input-field col s12">
@@ -100,13 +100,13 @@
 						</div>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">account_circle</i> <input
-								id="icon_telephone" type="text" name="name" class="validate"
+								id="name" type="text" name="name" class="validate"
 								required value="<%=session.getAttribute("name")%>"> <label
 								for="icon_telephone">Name</label>
 						</div>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">textsms</i> <input
-								id="icon_telephone" type="password" name="pass" class="validate"
+								id="email" type="password" name="pass" class="validate"
 								required> <label for="icon_telephone">Password</label>
 						</div>
 						<div class="row center">
@@ -131,8 +131,6 @@
 						students working on this project like it's our full time job. Any
 						amount would help support and continue development on this project
 						and is greatly appreciated.</p>
-
-
 				</div>
 			</div>
 		</div>
@@ -147,5 +145,6 @@
 		src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="js/materialize.js"></script>
 	<script src="js/init.js"></script>
+	<script src="js/setting.js"></script>
 </body>
 </html>

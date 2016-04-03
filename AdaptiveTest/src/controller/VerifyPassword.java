@@ -23,10 +23,8 @@ public class VerifyPassword extends HttpServlet {
 		UserDetails user = ofy().load().type(UserDetails.class).id(uID).now();
 		if (user.getPass().equals(password)) {
 			session.setAttribute("verified", "yes");
-			res.sendRedirect("/setting");
 		} else {
-			session.invalidate();
-			res.sendRedirect("/loginPage");
+			res.setStatus(403);
 		}
 	}
 }

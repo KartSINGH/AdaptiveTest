@@ -1,12 +1,14 @@
 package controller;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import java.io.*;
-
-import static dao.UserDetailsDao.save;
 import static dao.UserDetailsDao.check;
+import static dao.UserDetailsDao.save;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 public class RegisterController extends HttpServlet {
@@ -18,12 +20,9 @@ public class RegisterController extends HttpServlet {
 		String college = "MSIT";
 		String branch = req.getParameter("branch");
 		if (check(uID)) {
-			if (save(uID, pass, name, branch, college,"form")) {
-				res.sendRedirect("/loginPage");
-			} else
-				res.sendRedirect("/registerPage");
+			save(uID, pass, name, branch, college, "form");
 		} else {
-			res.sendRedirect("/dreg.html");
+			res.sendError(403);
 		}
 	}
 }

@@ -26,6 +26,5 @@ public class UpdateController extends HttpServlet {
 		user.setName(name);
 		ofy().save().entity(user).now();
 		session.setAttribute("name", name);
-		res.sendRedirect("/user");
 	}
 }

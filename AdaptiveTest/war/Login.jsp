@@ -106,17 +106,17 @@
 		</div>
 		<div class="col s12 m12 l4 right">
 			<div class="row">
-				<form method="post" action="/login">
+				<form onSubmit="return login()" id="loginform">
 					<div>
 						<h1 align="center" class="flow-text">Login</h1>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">account_circle</i> <input
-								id="icon_prefix" type="email" name="email" class="validate"
+								id="id" type="email" name="email" class="validate"
 								required> <label for="icon_prefix">Email ID</label>
 						</div>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">textsms</i> <input
-								id="icon_telephone" type="password" name="pass" class="validate"
+								id="pass" type="password" name="pass" class="validate"
 								required> <label for="icon_telephone">Password</label>
 						</div>
 						<div class="row center">
