@@ -78,18 +78,20 @@ function getQuestion() {
 												4000);
 							}
 						});
+
+				Materialize.toast('Test Completed. Generating your Result',
+						2000, '', function() {
+							window.open("/user", "_self");
+						});
+				complete = false;
+				$('input[name="group1"]:checked', '#testOption').removeAttr(
+						"checked");
+				$('input[type="submit"]').prop('disabled', true);
+				jQuery("input[name='group1']").each(function(i) {
+					jQuery(this).attr('disabled', 'disabled');
+				});
 			}
-			Materialize.toast('Test Completed. Generating your Result', 2000,
-					'', function() {
-						window.open("/user", "_self");
-					});
-			complete = false;
 		}
-		$('input[name="group1"]:checked', '#testOption').removeAttr("checked");
-		$('input[type="submit"]').prop('disabled', true);
-		jQuery("input[name='group1']").each(function(i) {
-			jQuery(this).attr('disabled', 'disabled');
-		});
 	} else if (counter != 0) {
 		var answer = $('input[name="group1"]:checked', '#testOption').val();
 		if (answer == null) {
