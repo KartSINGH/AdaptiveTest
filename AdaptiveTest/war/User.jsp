@@ -13,7 +13,6 @@
 %>
 
 <title>Dashboard</title>
-
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -78,7 +77,6 @@
 			</div>
 		</nav>
 	</div>
-
 	<div class="container mainPage">
 		<div class="headingPad">
 			<div class="row ">
@@ -103,7 +101,6 @@
 			</div>
 		</div>
 	</div>
-
 	<footer class="page-footer indigo darken-4">
 		<div class="container">
 			<div class="row">
@@ -113,8 +110,6 @@
 						students working on this project like it's our full time job. Any
 						amount would help support and continue development on this project
 						and is greatly appreciated.</p>
-
-
 				</div>
 			</div>
 		</div>
@@ -122,7 +117,6 @@
 			<div class="container">Copyright</div>
 		</div>
 	</footer>
-
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript"

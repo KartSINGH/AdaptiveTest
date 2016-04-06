@@ -18,9 +18,7 @@
 		}
 	}
 %>
-
 <title>Settings</title>
-
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -85,7 +83,6 @@
 			</div>
 		</nav>
 	</div>
-
 	<div class="container mainPage">
 		<div class="row">
 			<div class="col s12 m6 offset-m3  z-depth-2">
@@ -118,10 +115,8 @@
 					</div>
 				</form>
 			</div>
-
 		</div>
 	</div>
-
 	<footer class="page-footer indigo darken-4">
 		<div class="container">
 			<div class="row">

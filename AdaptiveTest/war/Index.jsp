@@ -7,7 +7,6 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
 <title>Test</title>
-
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -71,7 +70,6 @@
 			</div>
 		</nav>
 	</div>
-
 	<div class="parallax-container">
 		<div class="parallax">
 			<img src="/images/bg.jpg">
@@ -102,7 +100,6 @@
 			<img src="/images/bg.jpg">
 		</div>
 	</div>
-
 	<footer class="page-footer indigo darken-4">
 		<div class="container">
 			<div class="row">
@@ -112,8 +109,6 @@
 						students working on this project like it's our full time job. Any
 						amount would help support and continue development on this project
 						and is greatly appreciated.</p>
-
-
 				</div>
 			</div>
 		</div>

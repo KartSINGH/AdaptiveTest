@@ -11,9 +11,7 @@
 		response.sendRedirect("/loginPage");
 	}
 %>
-
 <title>Verify Password</title>
-
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -78,7 +76,6 @@
 			</div>
 		</nav>
 	</div>
-
 	<div class="container mainPage">
 		<div class="row">
 			<div class="col s12 m6 offset-m3 z-depth-2">
@@ -107,7 +104,6 @@
 			</div>
 		</div>
 	</div>
-
 	<footer class="page-footer indigo darken-4">
 		<div class="container">
 			<div class="row">
@@ -124,7 +120,6 @@
 			<div class="container">Copyright</div>
 		</div>
 	</footer>
-
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="js/materialize.js"></script>

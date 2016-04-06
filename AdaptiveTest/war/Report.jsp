@@ -17,9 +17,7 @@
 		response.sendRedirect("/loginPage");
 	}
 %>
-
 <title>Report</title>
-
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -84,7 +82,6 @@
 			</div>
 		</nav>
 	</div>
-
 	<div class="container mainPage ">
 		<div class="headingPad">
 			<div class="row ">
@@ -123,7 +120,6 @@
 			</div>
 		</div>
 	</div>
-
 	<footer class="page-footer indigo darken-4">
 		<div class="container">
 			<div class="row">
@@ -140,7 +136,6 @@
 			<div class="container">Copyright</div>
 		</div>
 	</footer>
-
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript"

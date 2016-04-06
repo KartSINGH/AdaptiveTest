@@ -6,13 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-
 <%
 	if (session.getAttribute("uID") != null) {
 		response.sendRedirect("/user");
 	}
 %>
-
 <title>Login</title>
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -77,7 +75,6 @@
 			</div>
 		</nav>
 	</div>
-
 	<div class="row mainPage">
 		<div class="col s12 m12 l8 left hide-on-med-and-down">
 			<div class="slider">
@@ -99,10 +96,8 @@
 							<h5 class="light grey-text text-lighten-3">Here's our small
 								slogan.</h5>
 						</div></li>
-
 				</ul>
 			</div>
-
 		</div>
 		<div class="col s12 m12 l4 right">
 			<div class="row">
@@ -138,7 +133,6 @@
 			</div>
 		</div>
 	</div>
-
 	<footer class="page-footer indigo darken-4">
 		<div class="container">
 			<div class="row">
@@ -148,8 +142,6 @@
 						students working on this project like it's our full time job. Any
 						amount would help support and continue development on this project
 						and is greatly appreciated.</p>
-
-
 				</div>
 			</div>
 		</div>
