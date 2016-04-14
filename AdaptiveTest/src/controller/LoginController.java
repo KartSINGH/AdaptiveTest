@@ -1,6 +1,7 @@
 package controller;
 
 import static dao.OfyService.ofy;
+import static dao.UserDetailsDao.hash;
 
 import java.io.IOException;
 
@@ -14,11 +15,15 @@ import entity.UserDetails;
 
 @SuppressWarnings("serial")
 public class LoginController extends HttpServlet {
-	public void doPost(HttpServletRequest req, HttpServletResponse res)
-			throws IOException, ServletException {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		res.setContentType("text/html");
 		String uID = req.getParameter("email");
-		String pass = req.getParameter("pass");
+		String pass = null;
+		try {
+			pass = hash(req.getParameter("pass"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		UserDetails ud = ofy().load().type(UserDetails.class).id(uID).now();
 		if (ud == null)
 			res.setStatus(404);

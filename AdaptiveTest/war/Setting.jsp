@@ -103,7 +103,7 @@
 						</div>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">textsms</i> <input
-								id="email" type="password" name="pass" class="validate"
+								id="pass" type="password" name="pass" class="validate"
 								required> <label for="icon_telephone">Password</label>
 						</div>
 						<div class="row center">
