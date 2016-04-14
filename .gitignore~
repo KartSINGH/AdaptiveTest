@@ -13,7 +13,7 @@ hs_err_pid*
 *.classpath
 
 # AppEngine Generated #
-AdaptiveTest/AdaptiveTest/war/WEB-INF/appengine-generated/
+AdaptiveTest/war/WEB-INF/appengine-generated/
 
 # Settings #
 com.google.appengine.eclipse.core.prefs

@@ -13,7 +13,8 @@ hs_err_pid*
 *.classpath
 
 # AppEngine Generated #
-AdaptiveTest/war/WEB-INF/appengine-generated/
+datastore-indexes-auto.xml
+local_db.bin
 
 # Settings #
 com.google.appengine.eclipse.core.prefs
