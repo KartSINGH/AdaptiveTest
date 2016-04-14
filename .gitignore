@@ -2,7 +2,6 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
@@ -14,8 +13,7 @@ hs_err_pid*
 *.classpath
 
 # AppEngine Generated #
-datastore-indexes-auto.xml
-local_db.bin
+AdaptiveTest/war/WEB-INF/appengine-generated/
 
 # Settings #
 com.google.appengine.eclipse.core.prefs
