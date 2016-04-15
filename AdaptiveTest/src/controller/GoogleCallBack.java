@@ -39,8 +39,8 @@ public class GoogleCallBack extends HttpServlet {
 
 	}
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
 			System.out.println("entering doGet");
 			try {
@@ -48,8 +48,7 @@ public class GoogleCallBack extends HttpServlet {
 				String code = request.getParameter("code");
 				System.out.println(code);
 				// format parameters to post
-				String urlParameters = "code="
-						+ code
+				String urlParameters = "code=" + code
 						+ "&client_id=585144124880-9rq2hkc3r42lkb0dflmsbj738320ru82.apps.googleusercontent.com"
 						+ "&client_secret=s4PuvIRBpYPxCf4Fk-rlDcnE"
 						+ "&redirect_uri=http://www.mymock-test.appspot.com/callback"
@@ -59,54 +58,44 @@ public class GoogleCallBack extends HttpServlet {
 				URL url = new URL("https://accounts.google.com/o/oauth2/token");
 				URLConnection urlConn = url.openConnection();
 				urlConn.setDoOutput(true);
-				OutputStreamWriter writer = new OutputStreamWriter(
-						urlConn.getOutputStream());
+				OutputStreamWriter writer = new OutputStreamWriter(urlConn.getOutputStream());
 				writer.write(urlParameters);
 				writer.flush();
 
 				// get output in outputString
 				String line, outputString = "";
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(urlConn.getInputStream()));
+				BufferedReader reader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
 				while ((line = reader.readLine()) != null) {
 					outputString += line;
 				}
 				System.out.println(outputString);
 
 				// get Access Token
-				JsonObject json = (JsonObject) new JsonParser()
-						.parse(outputString);
+				JsonObject json = (JsonObject) new JsonParser().parse(outputString);
 				String access_token = json.get("access_token").getAsString();
 				System.out.println(access_token);
 
 				// get User Info
-				url = new URL(
-						"https://www.googleapis.com/oauth2/v1/userinfo?access_token="
-								+ access_token);
+				url = new URL("https://www.googleapis.com/oauth2/v1/userinfo?access_token=" + access_token);
 				urlConn = url.openConnection();
 				outputString = "";
-				reader = new BufferedReader(new InputStreamReader(
-						urlConn.getInputStream()));
+				reader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
 				while ((line = reader.readLine()) != null) {
 					outputString += line;
 				}
-				
+
 				// Convert JSON response into Pojo class
-				GooglePojo data = new Gson().fromJson(outputString,
-						GooglePojo.class);
+				GooglePojo data = new Gson().fromJson(outputString, GooglePojo.class);
 				// Register
 				HttpSession sess = request.getSession();
 				// Check ID
 				if (check(data.getEmail())) {
-					DateFormat dateFormat = new SimpleDateFormat(
-							"yyyy/MM/dd HH:mm:ss");
+					DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 					Date date = new Date();
 					String id = dateFormat.format(date);
 					// Save Data and Login
-					save(data.getEmail(), id + "id:" + data.getId(),
-							data.getName(), "Branch", "MSIT", "google");
-					UserDetails ud = ofy().load().type(UserDetails.class)
-							.id(data.getEmail()).now();
+					save(data.getEmail(), id + "id:" + data.getId(), data.getName(), "Branch", "MSIT", "google");
+					UserDetails ud = ofy().load().type(UserDetails.class).id(data.getEmail()).now();
 					sess.setAttribute("uID", ud.getuID());
 					sess.setAttribute("college", ud.getCollege());
 					sess.setAttribute("branch", ud.getBranch());
@@ -115,8 +104,7 @@ public class GoogleCallBack extends HttpServlet {
 					response.sendRedirect("/user");
 				} else {
 					// Login
-					UserDetails ud = ofy().load().type(UserDetails.class)
-							.id(data.getEmail()).now();
+					UserDetails ud = ofy().load().type(UserDetails.class).id(data.getEmail()).now();
 					sess.setAttribute("uID", ud.getuID());
 					sess.setAttribute("college", ud.getCollege());
 					sess.setAttribute("branch", ud.getBranch());

@@ -47,7 +47,6 @@ function register() {
 	var pass = $("#pass").val();
 	var name = $("#name").val();
 	var branch = $("#branch").find(":selected").text();
-	console.log(email);
 	$.ajax({
 		type : "POST",
 		url : "/register",

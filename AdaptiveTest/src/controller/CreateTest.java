@@ -29,8 +29,7 @@ import entity.UserDetails;
 
 @SuppressWarnings("serial")
 public class CreateTest extends HttpServlet {
-	public void service(HttpServletRequest req, HttpServletResponse res)
-			throws IOException {
+	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		HttpSession session = req.getSession();
 		String uID = (String) session.getAttribute("uID");
 		String testId = req.getParameter("test");
@@ -41,8 +40,7 @@ public class CreateTest extends HttpServlet {
 		int questionCount = 5;
 		if (testId == null) {
 			Test test = createTest();
-			UserDetails user = ofy().load().type(UserDetails.class).id(uID)
-					.now();
+			UserDetails user = ofy().load().type(UserDetails.class).id(uID).now();
 			List<Ref<Test>> list = user.getTest();
 			list.add(Ref.create(test));
 			if (list.get(0).get().getId().equals("1"))

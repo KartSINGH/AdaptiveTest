@@ -18,8 +18,7 @@ import entity.Option;
 
 @SuppressWarnings("serial")
 public class QuestionController extends HttpServlet {
-	public void doPost(HttpServletRequest req, HttpServletResponse res)
-			throws IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		String question = req.getParameter("question");
 		String answer = req.getParameter("answer");
 		String course = req.getParameter("course");
@@ -29,8 +28,7 @@ public class QuestionController extends HttpServlet {
 		saveOption(op);
 		option.add(Ref.create(op));
 		for (int i = 0; i < 3; i++) {
-			op = new Option(question + "-" + i + new Date(),
-					req.getParameter("option" + i));
+			op = new Option(question + "-" + i + new Date(), req.getParameter("option" + i));
 			saveOption(op);
 			option.add(Ref.create(op));
 		}

@@ -22,8 +22,7 @@ import entity.UserDetails;
 
 @SuppressWarnings("serial")
 public class GraphController extends HttpServlet {
-	public void service(HttpServletRequest req, HttpServletResponse res)
-			throws IOException {
+	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		HttpSession session = req.getSession();
 		String uID = (String) session.getAttribute("uID");
 		UserDetails user = ofy().load().type(UserDetails.class).id(uID).now();
