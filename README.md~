@@ -14,7 +14,6 @@ This provides an platform where users can generate test in multiple domain with 
 * Import Project in Eclipse.
 * Run server using Google App Engine Plugin in Eclipse
 * For Initial Setup visit.
-
-```sh
+'''sh
 /setup
-```
+'''
