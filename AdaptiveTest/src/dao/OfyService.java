@@ -10,6 +10,7 @@ public class OfyService {
 		factory().register(entity.Question.class);
 		factory().register(entity.Test.class);
 		factory().register(entity.UserDetails.class);
+		factory().register(entity.ForgotUser.class);
 	}
 
 	public static Objectify ofy() {
