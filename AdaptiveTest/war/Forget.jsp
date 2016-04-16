@@ -136,9 +136,21 @@
 				<%
 					} else {
 						ForgotUser fu = ofy().load().type(ForgotUser.class).id(cp).now();
-						if(fu == null){
-							System.out.println("Error");
-						}else{
+						if (fu == null) {
+				%>
+				<div>
+					<div class="row center">
+						<p class="flow-text center">Link has been Expired. Please Try
+							Again.
+					</div>
+					<div>
+						<p class="flow-text center">
+							<a href="/forgotPassword"> Forgot Password </a>
+						</p>
+					</div>
+				</div>
+				<%
+					} else {
 				%>
 				<form onSubmit="return update()" id="forgotform">
 					<div>
@@ -146,7 +158,8 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">account_circle</i> <input
 								id="id" type="email" name="email" class="validate" required
-								disabled value="<%= fu.getuID().get().getuID() %>"> <label for="icon_prefix">Email ID</label>
+								disabled value="<%=fu.getuID().get().getuID()%>"> <label
+								for="icon_prefix">Email ID</label>
 						</div>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">textsms</i> <input id="pass"
@@ -171,7 +184,7 @@
 					</div>
 				</form>
 				<%
-						}
+					}
 					}
 				%>
 			</div>

@@ -43,7 +43,7 @@ public class ForgotController extends HttpServlet {
 			Message msg = new MimeMessage(session);
 			// Forgot Email
 			try {
-				msg.setFrom(new InternetAddress("danish8802204230@gmail.com", "Mock Test"));
+				msg.setFrom(new InternetAddress("kart.singh15@gmail.com", "Mock Test"));
 				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(uID, "User"));
 				msg.setSubject("Forgot Password");
 				msg.setText(msgBody);

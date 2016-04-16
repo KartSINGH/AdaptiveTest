@@ -104,6 +104,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>Delete Forgot Password</servlet-name>
+		<servlet-class>controller.DeleteForgotController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Delete Forgot Password</servlet-name>
+		<url-pattern>/deleteForgotUser</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>Test</servlet-name>
 		<servlet-class>controller.Testing</servlet-class>
 	</servlet>

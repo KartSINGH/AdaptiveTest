@@ -126,6 +126,9 @@
 								Sign in with Google </a>
 						</p>
 						<p class="flow-text center">
+							<a href="/forgotPassword"> Forgot Password </a>
+						</p>
+						<p class="flow-text center">
 							If you are a new user <a href="/registerPage">Register</a>
 						</p>
 					</div>
